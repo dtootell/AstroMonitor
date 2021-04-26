@@ -1,0 +1,57 @@
+#:import utils kivy.utils
+<HomeScreen>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#000099")
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("#ffffff")
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            rows:1
+            pos_hint: {"top":1, "left": 1}
+            size_hint: 1, 0.1
+            Image:
+                source:"kv/icons/telescope.png"
+            Label:
+                text: "Astro Monitor"
+                color: 0,0,0,1
+                id: title_label
+            Image:
+                source: "kv/icons/constellation.png"
+        GridLayout:
+            rows:1
+            pos_hint: {"top":0.9, "left": 1}
+            size_hint: 1, 0.05
+        GridLayout:
+            rows:1
+            pos_hint: {"top":0.85, "left": 1}
+            size_hint: 1, 0.05
+            ConnectButton:
+                source:"kv/icons/link_white.png"
+            Label:
+                text: "Connect to APT"
+        GridLayout:
+            rows:1
+            pos_hint: {"top":0.7, "left": 1}
+            size_hint: 1, 0.1
+            ImageButton:
+                source: "kv/icons/shortlist_white.png"
+                on_press:
+                    print("Pressed the thing")
+                    self.source = "kv/icons/shortlist.png"
+                on_release:
+                    self.source = "kv/icons/shortlist_white.png"
+                    print("status")
+            Label:
+                text: ""
+                id: status_APT
+
+
+

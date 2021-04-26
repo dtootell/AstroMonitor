@@ -1,0 +1,68 @@
+#:import utils kivy.utils
+FloatLayout:
+    canvas:
+        Color:
+            rgb: utils.get_color_from_hex("#000099")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    GridLayout:
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#ffffff")
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        rows:1
+        pos_hint: {"top":1, "left": 1}
+        size_hint: 1, 0.1
+        Image:
+            source:"kv/icons/telescope.png"
+        Label:
+            text: "Astro Monitor"
+            color: 0,0,0,1
+            id: title_label
+        Image:
+            source: "kv/icons/constellation.png"
+    GridLayout:
+        rows:1
+        pos_hint: {"top":0.9, "left": 1}
+        size_hint: 1, 0.05
+    GridLayout:
+        rows:1
+        pos_hint: {"top":0.85, "left": 1}
+        size_hint: 1, 0.05
+        ConnectButton:
+            size_hint: 0.2, 0.05
+            source:"kv/icons/link_white.png"
+            status_label: status_APT
+            connect_label: connect_APT
+            ip_label: ip_APT
+            statuspanel_label: statuspanel_label
+        TextInput:
+            text:"127.0.0.1"
+            id: ip_APT
+        Label:
+            text: "Awating connection...."
+            id: connect_APT
+        Label:
+            text: "********"
+            id: status_APT
+    GridLayout:
+        rows:1
+        pos_hint: {"top":0.7, "left": 1}
+        size_hint: 1, 0.1
+        ImageButton:
+            source: "kv/icons/shortlist_white.png"
+            on_press:
+                print("Pressed the thing")
+                self.source = "kv/icons/shortlist.png"
+            on_release:
+                self.source = "kv/icons/shortlist_white.png"
+                print("status")
+        Label:
+            text: "boosh"
+            id: statuspanel_label
+
+
+
